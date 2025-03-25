@@ -2,3 +2,8 @@
   font-family: "Poppins";
   src: url(./fonts/Poppins-Medium.ttf) format("truetype");
 }
+
+@font-face {
+  font-family: "DM Mono";
+  src: url(./fonts/DMMono-Medium.ttf) format("truetype");
+}
