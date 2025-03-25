@@ -11,10 +11,3 @@
   font-style: normal;
   font-weight: 500;
 }
-
-@font-face {
-  font-family: "DM Mono";
-  src: url(./fonts/DMMono-Medium.ttf) format("truetype");
-  font-style: normal;
-  font-weight: 500;
-}
