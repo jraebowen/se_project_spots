@@ -1,10 +1,71 @@
 .profile {
-  margin: 0;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-top: 34px;
   padding-bottom: 20px;
   display: flex;
+  border-bottom: 1px solid rgba(33, 33, 33, 0.4);
+}
+
+.profile__image {
+  width: 190px;
+  padding-right: 20px;
+}
+
+.profile__bio {
+  display: flex;
+  flex-direction: column;
 }
 
 .name {
-  font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-size: 32px;
+  color: #212121;
+  padding-bottom: 12px;
+  margin: 0;
+}
+
+.description {
+  font-size: 16px;
+  opacity: 70%;
+  margin: 0;
+}
+
+.edit-button {
+  opacity: 70%;
+  font-size: 16px;
+  margin-top: auto;
+  margin-right: auto;
+  padding: 0;
+  border: none;
+  font-family: "Poppins", Arial, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  background-color: #fcf5e5;
+}
+
+.edit-button__image {
+  padding-right: 8px;
+}
+
+.post-button {
+  margin-left: auto;
+  margin-top: auto;
+  padding: 0;
+  background-color: #212121;
+  color: #fcf5e5;
+  border-radius: 8%;
+  border: none;
+  width: 149px;
+  height: 52px;
+  font-family: "Poppins", Arial, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.post-button__plus {
+  padding-right: 8px;
 }
