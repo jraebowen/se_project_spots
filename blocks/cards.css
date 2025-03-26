@@ -16,34 +16,3 @@
   margin: 0;
   padding: 0;
 }
-
-.card__image-container {
-  background-color: rgba(217, 217, 217, 1);
-  border-radius: 2%;
-  overflow: hidden;
-  max-height: 413px;
-}
-
-.card__image {
-  width: 100%;
-  max-height: 413px;
-  object-position: center;
-  object-fit: cover;
-}
-
-.card__content {
-  display: flex;
-  align-items: center;
-  padding-top: 8px;
-}
-.card__text {
-  line-height: 1.2;
-  margin: 0;
-}
-
-.card__icon {
-  opacity: 40%;
-  width: 23px;
-  height: 20px;
-  margin-left: auto;
-}
