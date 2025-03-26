@@ -1,8 +1,5 @@
-.card__image-container {
-  background-color: rgba(217, 217, 217, 1);
-  border-radius: 2%;
-  overflow: hidden;
-  max-height: 413px;
+.card {
+  max-width: 413px;
 }
 
 .card__image {
@@ -10,6 +7,8 @@
   max-height: 413px;
   object-position: center;
   object-fit: cover;
+  display: block;
+  border-radius: 2%;
 }
 
 .card__content {
