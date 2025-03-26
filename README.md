@@ -27,7 +27,7 @@ This project is a design of a social media network named Spots. It is based off 
 
 [Link to the project on Figma](https://www.figma.com/file/BBNm2bC3lj8QQMHlnqRsga/Sprint-3-Project-%E2%80%94-Spots?type=design&node-id=2%3A60&mode=design&t=afgNFybdorZO6cQo-1)
 
-**Images and Componenets**
+**Images and Componenets Used**
 
 - [Logo](./images/logo.svg)
 - [Profile Image](./images/avatar.jpg)
@@ -40,6 +40,11 @@ This project is a design of a social media network named Spots. It is based off 
 - [Fourth Photo](./images/4-photo-by-maurice-laschet-from-pexels.jpg)
 - [Fifth Photo](./images/5-photo-by-van-anh-nguyen-from-pexels.jpg)
 - [Sixth Photo](./images/6-photo-by-moritz-feldmann-from-pexels.jpg)
+
+**Screenshots of Responsive Design**
+
+- [Desktop Responsive Design](https://drive.google.com/file/d/10uDLKOPVbQld18QhKHPntwnguGo68e3g/view?usp=sharing)
+- [Mobile Responsive Design](https://drive.google.com/file/d/10uDLKOPVbQld18QhKHPntwnguGo68e3g/view?usp=sharing)
 
 **Final Project**
 [Link to live project](https://jraebowen.github.io/se_project_spots/)
