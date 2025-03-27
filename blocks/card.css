@@ -15,15 +15,23 @@
   padding-top: 8px;
 }
 .card__text {
+  font-style: normal;
+  font-weight: 500;
+  color: #212121;
   line-height: 1.2;
   margin: 0;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  max-width: 350px;
 }
 
 .card__like-button {
   background-image: url(../images/like-icon.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
   opacity: 40%;
   width: 23px;
   height: 20px;
@@ -42,7 +50,12 @@
   }
 
   .card__text {
+    font-style: normal;
+    font-weight: 500;
+    color: #212121;
+    line-height: 1;
     font-size: 16px;
+    max-width: 250px;
   }
 
   .card__like-button {
