@@ -28,6 +28,11 @@
   width: 23px;
   height: 20px;
   border: none;
+  transition: scale 0.5s linear 0s;
+}
+
+.card__like-button:hover {
+  scale: 1.1 1.1;
 }
 
 @media screen and (max-width: 635px) {
