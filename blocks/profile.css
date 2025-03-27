@@ -17,13 +17,13 @@
   flex-direction: column;
 }
 
-.name {
+.profile__name {
   font-size: 32px;
   color: #212121;
   margin: 0 0 12px 0;
 }
 
-.description {
+.profile__description {
   font-size: 16px;
   opacity: 70%;
   margin: 0;
@@ -34,7 +34,7 @@
   -webkit-box-orient: vertical;
 }
 
-.edit-button {
+.profile__edit-button {
   opacity: 70%;
   font-size: 16px;
   margin-top: auto;
@@ -48,17 +48,27 @@
   line-height: 1;
   background-color: #fcf5e5;
   transition: scale 0.5s linear 0s;
+  display: flex;
 }
 
-.edit-button:hover {
+.profile__edit-button::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background-image: url(../images/edit-profile.svg);
+  padding-right: 10px;
+  background-repeat: no-repeat;
+}
+
+.profile__edit-button:hover {
   scale: 1.1 1.1;
 }
 
-.edit-button__image {
+.profile__edit-button__image {
   padding-right: 8px;
 }
 
-.post-button {
+.profile__post-button {
   margin-left: auto;
   margin-top: auto;
   padding: 0;
@@ -76,11 +86,11 @@
   transition: scale 0.5s linear 0s;
 }
 
-.post-button:hover {
+.profile__post-button:hover {
   scale: 1.1 1.1;
 }
 
-.post-button__plus {
+.profile__post-button__plus {
   padding-right: 8px;
 }
 
@@ -105,18 +115,18 @@
     align-items: center;
   }
 
-  .name {
+  .profile__name {
     margin: 0;
     padding-bottom: 6px;
     font-size: 20px;
   }
 
-  .edit-button {
+  .profile__edit-button {
     margin: 0;
     padding: 32px 0 20px 0;
   }
 
-  .post-button {
+  .profile__post-button {
     margin: 0;
     width: 100%;
   }

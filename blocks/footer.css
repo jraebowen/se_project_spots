@@ -2,8 +2,11 @@
   opacity: 70%;
   display: flex;
   justify-content: center;
-  margin: 0;
   padding: 60px 0;
   font-weight: 400;
   font-size: 16px;
+}
+
+.footer__text {
+  margin: 0;
 }
