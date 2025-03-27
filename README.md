@@ -48,3 +48,4 @@ This project is a design of a social media network named Spots. It is based off 
 
 **Final Project**
 [Link to live project](https://jraebowen.github.io/se_project_spots/)
+[Recorded overview of project](https://drive.google.com/file/d/1UBWOwgwm36UgGa1H6EWGHuHucgIjbCAy/view?usp=sharing)
