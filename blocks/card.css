@@ -1,6 +1,6 @@
 .card__image {
   width: 100%;
-  max-height: 413px;
+  height: 413px;
   object-position: center;
   object-fit: cover;
   display: block;
@@ -15,6 +15,7 @@
   padding-top: 8px;
 }
 .card__text {
+  font-size: 20px;
   font-style: normal;
   font-weight: 500;
   color: #212121;
@@ -50,9 +51,6 @@
   }
 
   .card__text {
-    font-style: normal;
-    font-weight: 500;
-    color: #212121;
     line-height: 1;
     font-size: 16px;
     max-width: 250px;
