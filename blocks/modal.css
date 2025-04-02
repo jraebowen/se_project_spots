@@ -1,0 +1,159 @@
+.modal {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  z-index: 1;
+}
+
+.modal_is-opened {
+  visibility: visible;
+}
+
+.modal__container {
+  max-width: 730px;
+  width: 100%;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.modal__title {
+  font-weight: 500px;
+  font-size: 32px;
+  line-height: 1;
+  margin: 32px 50px;
+  padding: 4px 0;
+}
+
+.modal__close-button {
+  height: 40px;
+  width: 40px;
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  margin: 0;
+  padding: 0;
+  background-image: url(../images/close-icon-one.svg);
+}
+
+.modal__close-button:hover {
+  cursor: pointer;
+  background-image: url(../images/close-icon-two.svg);
+}
+
+.modal__form {
+  margin: 0 50px 32px 50px;
+}
+
+.form__fieldset {
+  margin: 0 0 32px 0;
+  padding: 0;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form__fieldset:last-of-type {
+  margin: 0;
+}
+
+.form__label {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.1;
+  color: rgba(33, 33, 33, 0.7);
+  margin: 0;
+  padding: 0;
+}
+
+.form__input {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1;
+  border: 1px solid rgba(33, 33, 33, 0.4);
+  border-radius: 8px;
+  color: rgba(33, 33, 33);
+  padding: 10px 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form__input::placeholder {
+  color: rgba(33, 33, 33, 0.3);
+}
+
+.form__input:hover {
+  border: 1px solid rgba(33, 33, 33, 1);
+  cursor: pointer;
+}
+
+.form__button {
+  color: #fff;
+  background: rgba(33, 33, 33);
+  max-width: 156px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  padding: 18px 0;
+  border: none;
+}
+
+.form__button:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 635px) {
+  .modal__container {
+    max-width: 300px;
+    width: 100%;
+  }
+
+  .modal__close-button {
+    top: 5px;
+    right: 10px;
+  }
+
+  .modal__title {
+    margin: 12px 12px 24px 12px;
+    padding: 10px 0;
+    font-size: 20px;
+  }
+
+  .modal__form {
+    margin: 0 12px 12px 12px;
+  }
+
+  .form__fieldset {
+    margin: 0 0 24px 0;
+  }
+
+  .form__input {
+    font-size: 16px;
+  }
+
+  .form__input::placeholder {
+    font-size: 16px;
+  }
+
+  .form__button {
+    align-items: center;
+    width: 100%;
+    max-width: none;
+  }
+}
