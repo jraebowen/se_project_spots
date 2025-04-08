@@ -36,10 +36,6 @@ function submitProfileForm(evt) {
 
 profileForm.addEventListener("submit", submitProfileForm);
 
-editModalCloseBtn.addEventListener("click", function () {
-  editProfileModal.classList.remove("modal_is-opened");
-});
-
 newPostBtn.addEventListener("click", function () {
   newPostModal.classList.add("modal_is-opened");
 });
@@ -53,6 +49,13 @@ function submitPostForm(evt) {
 
 cardForm.addEventListener("submit", submitPostForm);
 
-postModalCloseBtn.addEventListener("click", function () {
-  newPostModal.classList.remove("modal_is-opened");
+const closeButtons = document.querySelectorAll(".modal__close-button");
+
+closeButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const modal = button.closest(".modal");
+    if (modal) {
+      modal.classList.remove("modal_is-opened");
+    }
+  });
 });
