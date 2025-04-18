@@ -1,3 +1,16 @@
+let initialCards = [
+  { name: "Maine Coon", link: "../images/mainecoon.jpg" },
+  { name: "Playful Kitten", link: "../images/kittenplay.jpg" },
+  { name: "Meowing Kitten", link: "../images/kittenmeow.jpg" },
+  { name: "Curious Cat", link: "../images/cathello.jpg" },
+  { name: "Roaring Kitten", link: "../images/kittenroar.jpg" },
+  { name: "Sunglass Cat", link: "../images/catsunglasses.jpg" },
+];
+
+initialCards.forEach(function (item) {
+  console.log(item.name);
+});
+
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileBtn = document.querySelector(".profile__edit-button");
 const editModalCloseBtn = editProfileModal.querySelector(
@@ -52,7 +65,7 @@ cardForm.addEventListener("submit", submitPostForm);
 const closeButtons = document.querySelectorAll(".modal__close-button");
 
 closeButtons.forEach((button) => {
-  button.addEventListener("click", () => {
+  button.addEventListener("click", function () {
     const modal = button.closest(".modal");
     if (modal) {
       modal.classList.remove("modal_is-opened");
