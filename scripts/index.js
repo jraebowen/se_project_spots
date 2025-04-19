@@ -76,7 +76,7 @@ closeButtons.forEach((button) => {
   button.addEventListener("click", function () {
     const modal = button.closest(".modal");
     if (modal) {
-      closeModal("modal__close-button");
+      closeModal(modal);
     }
   });
 });
