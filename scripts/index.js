@@ -31,11 +31,19 @@ const cardForm = newPostModal.querySelector(".form");
 const imageLink = newPostModal.querySelector("#image-link");
 const imageCaption = newPostModal.querySelector("#image-caption");
 
+function openModal(modal) {
+  modal.classList.add("modal_is-opened");
+}
+
+function closeModal(modal) {
+  modal.classList.remove("modal_is-opened");
+}
+
 function editProfile(evt) {
   evt.preventDefault();
   nameInput.value = profileName.textContent;
   descriptionInput.value = profileDescription.textContent;
-  editProfileModal.classList.add("modal_is-opened");
+  openModal(editProfileModal);
 }
 
 editProfileBtn.addEventListener("click", editProfile);
@@ -44,20 +52,20 @@ function submitProfileForm(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileDescription.textContent = descriptionInput.value;
-  editProfileModal.classList.remove("modal_is-opened");
+  closeModal(editProfileModal);
 }
 
 profileForm.addEventListener("submit", submitProfileForm);
 
 newPostBtn.addEventListener("click", function () {
-  newPostModal.classList.add("modal_is-opened");
+  openModal(newPostModal);
 });
 
 function submitPostForm(evt) {
   evt.preventDefault();
   console.log(imageLink.value);
   console.log(imageCaption.value);
-  newPostModal.classList.remove("modal_is-opened");
+  closeModal(newPostModal);
 }
 
 cardForm.addEventListener("submit", submitPostForm);
@@ -68,7 +76,7 @@ closeButtons.forEach((button) => {
   button.addEventListener("click", function () {
     const modal = button.closest(".modal");
     if (modal) {
-      modal.classList.remove("modal_is-opened");
+      closeModal("modal__close-button");
     }
   });
 });
