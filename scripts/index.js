@@ -1,3 +1,8 @@
+//TO DO:
+//1. clarification on semi-colon after functions
+//2. re-organize variables vs. functions
+//3. refactor to arrow functions for practice
+
 let initialCards = [
   { name: "Maine Coon", link: "../images/mainecoon.jpg" },
   { name: "Playful Kitten", link: "../images/kittenplay.jpg" },
@@ -79,4 +84,28 @@ closeButtons.forEach((button) => {
       closeModal(modal);
     }
   });
+});
+
+const cardTemplate = document.querySelector("#card__template"); //is this needed?
+const cardContainer = document.querySelector(".cards__list");
+
+function getCardData(data) {
+  const cardElement = document
+    .querySelector("#card__template")
+    .content.querySelector(".card")
+    .cloneNode(true);
+
+  const cardImage = cardElement.querySelector(".card__image");
+  const cardText = cardElement.querySelector(".card__text");
+
+  cardImage.src = data.link;
+  cardImage.alt = data.name;
+  cardText.textContent = data.name;
+
+  return cardElement;
+}
+
+initialCards.forEach(function (cardData) {
+  const getCardElement = getCardData(cardData); //do i need a different variable name here even though it's a different function than getCardData?
+  cardContainer.prepend(getCardElement);
 });

@@ -29,72 +29,15 @@
         </section>
         <section class="cards page__section">
           <ul class="cards__list">
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/1-photo-by-moritz-feldmann-from-pexels.jpg"
-                alt="Val Thorens"
-              />
-              <div class="card__content">
-                <p class="card__text">Val Thorens</p>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/2-photo-by-ceiline-from-pexels.jpg"
-                alt="restaurant terrace"
-              />
-              <div class="card__content">
-                <p class="card__text">Restaurant terrace</p>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/3-photo-by-tubanur-dogan-from-pexels.jpg"
-                alt="outdoor cafe"
-              />
-              <div class="card__content">
-                <p class="card__text">An outdoor cafe</p>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/4-photo-by-maurice-laschet-from-pexels.jpg"
-                alt="bridge"
-              />
-              <div class="card__content">
-                <p class="card__text">A very long bridge, over the forest</p>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/5-photo-by-van-anh-nguyen-from-pexels.jpg"
-                alt="tunnel"
-              />
-              <div class="card__content">
-                <p class="card__text">Tunnel with morning light</p>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/6-photo-by-moritz-feldmann-from-pexels.jpg"
-                alt="mountain house"
-              />
-              <div class="card__content">
-                <p class="card__text">Mountain house</p>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
+            <template id="card__template">
+              <li class="card">
+                <img class="card__image" />
+                <div class="card__content">
+                  <p class="card__text"></p>
+                  <button type="button" class="card__like-button"></button>
+                </div>
+              </li>
+            </template>
           </ul>
         </section>
       </main>
