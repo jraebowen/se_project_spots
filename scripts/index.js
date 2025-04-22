@@ -2,7 +2,7 @@
 //1. clarification on semi-colon after functions
 //2. re-organize variables vs. functions
 //3. refactor to arrow functions for practice
-//4. delete un-used photos
+//4. fix delete button opacity and double check mobile size
 
 let initialCards = [
   { name: "Maine Coon", link: "../images/mainecoon.jpg" },
