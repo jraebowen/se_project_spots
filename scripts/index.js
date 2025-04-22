@@ -2,6 +2,7 @@
 //1. clarification on semi-colon after functions
 //2. re-organize variables vs. functions
 //3. refactor to arrow functions for practice
+//4. delete un-used photos
 
 let initialCards = [
   { name: "Maine Coon", link: "../images/mainecoon.jpg" },
@@ -11,10 +12,6 @@ let initialCards = [
   { name: "Roaring Kitten", link: "../images/kittenroar.jpg" },
   { name: "Sunglass Cat", link: "../images/catsunglasses.jpg" },
 ];
-
-initialCards.forEach(function (item) {
-  console.log(item.name);
-});
 
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileBtn = document.querySelector(".profile__edit-button");
@@ -86,13 +83,12 @@ closeButtons.forEach((button) => {
   });
 });
 
-const cardTemplate = document.querySelector("#card__template"); //is this needed?
+const cardTemplate = document.querySelector("#card-template");
 const cardContainer = document.querySelector(".cards__list");
 
-function getCardData(data) {
-  const cardElement = document
-    .querySelector("#card__template")
-    .content.querySelector(".card")
+function getCardElement(data) {
+  const cardElement = cardTemplate.content
+    .querySelector(".card")
     .cloneNode(true);
 
   const cardImage = cardElement.querySelector(".card__image");
@@ -105,7 +101,7 @@ function getCardData(data) {
   return cardElement;
 }
 
-initialCards.forEach(function (cardData) {
-  const getCardElement = getCardData(cardData); //do i need a different variable name here even though it's a different function than getCardData?
-  cardContainer.prepend(getCardElement);
+initialCards.forEach(function (cardElementData) {
+  const cardDetails = getCardElement(cardElementData);
+  cardContainer.prepend(cardDetails);
 });
