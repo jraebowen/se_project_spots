@@ -57,20 +57,30 @@ function submitProfileForm(evt) {
   closeModal(editProfileModal);
 }
 
-profileForm.addEventListener("submit", submitProfileForm);
+profileForm.addEventListener("submit", submitProfileForm); //should this be in the above function?
 
 newPostBtn.addEventListener("click", function () {
   openModal(newPostModal);
 });
 
+const newPostValues = {
+  link: imageLink.value,
+  name: imageCaption.value,
+};
+
 function submitPostForm(evt) {
   evt.preventDefault();
-  console.log(imageLink.value);
-  console.log(imageCaption.value);
+  const newCardElement = getCardElement(newPostValues);
+
+  cardContainer.prepend(newCardElement);
+
+  imageLink.value = "";
+  imageCaption.value = "";
+
   closeModal(newPostModal);
 }
 
-cardForm.addEventListener("submit", submitPostForm);
+cardForm.addEventListener("submit", submitPostForm); //should be this be part of the above function?
 
 const closeButtons = document.querySelectorAll(".modal__close-button");
 
@@ -103,5 +113,5 @@ function getCardElement(data) {
 
 initialCards.forEach(function (cardElementData) {
   const cardDetails = getCardElement(cardElementData);
-  cardContainer.prepend(cardDetails);
+  cardContainer.append(cardDetails);
 });
