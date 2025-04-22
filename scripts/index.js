@@ -63,13 +63,13 @@ newPostBtn.addEventListener("click", function () {
   openModal(newPostModal);
 });
 
-const newPostValues = {
-  link: imageLink.value,
-  name: imageCaption.value,
-};
-
 function submitPostForm(evt) {
   evt.preventDefault();
+
+  const newPostValues = {
+    link: imageLink.value,
+    name: imageCaption.value,
+  };
   const newCardElement = getCardElement(newPostValues);
 
   cardContainer.prepend(newCardElement);
@@ -112,6 +112,12 @@ function getCardElement(data) {
 
   cardLikeBtn.addEventListener("click", function () {
     cardLikeBtn.classList.toggle("card__like-button_active");
+  });
+
+  const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
+
+  cardDeleteBtn.addEventListener("click", function () {
+    cardElement.remove();
   });
 
   return cardElement;
