@@ -75,13 +75,9 @@ function submitProfileForm(evt) {
 profileForm.addEventListener("submit", submitProfileForm);
 
 //Post form functions
-newPostBtn.addEventListener("click", () => {
-  openModal(newPostModal);
-});
+newPostBtn.addEventListener("click", () => openModal(newPostModal));
 
-newPostBtn.addEventListener("click", () => {
-  openModal(newPostModal);
-});
+newPostBtn.addEventListener("click", () => openModal(newPostModal));
 
 function submitPostForm(evt) {
   evt.preventDefault();
