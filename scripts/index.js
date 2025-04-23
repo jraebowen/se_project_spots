@@ -1,10 +1,4 @@
-//TO DO:
-//1. clarification on semi-colon after functions
-//2. re-organize variables vs. functions
-//3. refactor to arrow functions for practice
-//4. fix delete button opacity and double check mobile size
-//5. do i need the post and edit modal close butns?
-
+//Card display on page load
 let initialCards = [
   { name: "Maine Coon", link: "../images/mainecoon.jpg" },
   { name: "Playful Kitten", link: "../images/kittenplay.jpg" },
@@ -14,9 +8,9 @@ let initialCards = [
   { name: "Sunglass Cat", link: "../images/catsunglasses.jpg" },
 ];
 
+//Profile variables
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileBtn = document.querySelector(".profile__edit-button");
-
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 const nameInput = editProfileModal.querySelector("#full-name");
@@ -25,14 +19,23 @@ const descriptionInput = editProfileModal.querySelector(
 );
 const profileForm = editProfileModal.querySelector(".form");
 
+//Post variables
 const newPostModal = document.querySelector("#new-post-modal");
 const newPostBtn = document.querySelector(".profile__post-button");
 const cardForm = newPostModal.querySelector(".form");
 const imageLink = newPostModal.querySelector("#image-link");
 const imageCaption = newPostModal.querySelector("#image-caption");
 
+//Card modal variables
 const cardModal = document.querySelector("#card-modal");
+const modalCardImage = cardModal.querySelector(".modal__card-image");
+const modalCardText = cardModal.querySelector(".modal__card-text");
 
+//Card template variables
+const cardTemplate = document.querySelector("#card-template");
+const cardContainer = document.querySelector(".cards__list");
+
+//Modal open/close functions
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
 }
@@ -41,14 +44,26 @@ function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
 }
 
+const closeButtons = document.querySelectorAll(".modal__close-button");
+
+closeButtons.forEach((button) => {
+  button.addEventListener("click", function () {
+    const modal = button.closest(".modal");
+    if (modal) {
+      closeModal(modal);
+    }
+  });
+});
+
+//Profile functions
+editProfileBtn.addEventListener("click", editProfile);
+
 function editProfile(evt) {
   evt.preventDefault();
   nameInput.value = profileName.textContent;
   descriptionInput.value = profileDescription.textContent;
   openModal(editProfileModal);
 }
-
-editProfileBtn.addEventListener("click", editProfile);
 
 function submitProfileForm(evt) {
   evt.preventDefault();
@@ -57,9 +72,14 @@ function submitProfileForm(evt) {
   closeModal(editProfileModal);
 }
 
-profileForm.addEventListener("submit", submitProfileForm); //should this be in the above function?
+profileForm.addEventListener("submit", submitProfileForm);
 
-newPostBtn.addEventListener("click", function () {
+//Post form functions
+newPostBtn.addEventListener("click", () => {
+  openModal(newPostModal);
+});
+
+newPostBtn.addEventListener("click", () => {
   openModal(newPostModal);
 });
 
@@ -80,22 +100,9 @@ function submitPostForm(evt) {
   closeModal(newPostModal);
 }
 
-cardForm.addEventListener("submit", submitPostForm); //should be this be part of the above function?
+cardForm.addEventListener("submit", submitPostForm);
 
-const closeButtons = document.querySelectorAll(".modal__close-button");
-
-closeButtons.forEach((button) => {
-  button.addEventListener("click", function () {
-    const modal = button.closest(".modal");
-    if (modal) {
-      closeModal(modal);
-    }
-  });
-});
-
-const cardTemplate = document.querySelector("#card-template");
-const cardContainer = document.querySelector(".cards__list");
-
+//Post data/template functions and initial card functions
 function getCardElement(data) {
   const cardElement = cardTemplate.content
     .querySelector(".card")
@@ -110,20 +117,17 @@ function getCardElement(data) {
 
   const cardLikeBtn = cardElement.querySelector(".card__like-button");
 
-  cardLikeBtn.addEventListener("click", function () {
+  cardLikeBtn.addEventListener("click", () => {
     cardLikeBtn.classList.toggle("card__like-button_active");
   });
 
   const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
 
-  cardDeleteBtn.addEventListener("click", function () {
+  cardDeleteBtn.addEventListener("click", () => {
     cardElement.remove();
   });
 
-  const modalCardImage = cardModal.querySelector(".modal__card-image");
-  const modalCardText = cardModal.querySelector(".modal__card-text");
-
-  cardImage.addEventListener("click", function () {
+  cardImage.addEventListener("click", () => {
     modalCardImage.src = data.link;
     modalCardImage.alt = data.name;
     modalCardText.textContent = data.name;
@@ -133,7 +137,7 @@ function getCardElement(data) {
   return cardElement;
 }
 
-initialCards.forEach(function (cardElementData) {
+initialCards.forEach((cardElementData) => {
   const cardDetails = getCardElement(cardElementData);
   cardContainer.append(cardDetails);
 });
