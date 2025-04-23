@@ -3,6 +3,7 @@
 //2. re-organize variables vs. functions
 //3. refactor to arrow functions for practice
 //4. fix delete button opacity and double check mobile size
+//5. do i need the post and edit modal close butns?
 
 let initialCards = [
   { name: "Maine Coon", link: "../images/mainecoon.jpg" },
@@ -15,9 +16,7 @@ let initialCards = [
 
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileBtn = document.querySelector(".profile__edit-button");
-const editModalCloseBtn = editProfileModal.querySelector(
-  ".modal__close-button"
-);
+
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 const nameInput = editProfileModal.querySelector("#full-name");
@@ -28,10 +27,11 @@ const profileForm = editProfileModal.querySelector(".form");
 
 const newPostModal = document.querySelector("#new-post-modal");
 const newPostBtn = document.querySelector(".profile__post-button");
-const postModalCloseBtn = newPostModal.querySelector(".modal__close-button");
 const cardForm = newPostModal.querySelector(".form");
 const imageLink = newPostModal.querySelector("#image-link");
 const imageCaption = newPostModal.querySelector("#image-caption");
+
+const cardModal = document.querySelector("#card-modal");
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
@@ -118,6 +118,16 @@ function getCardElement(data) {
 
   cardDeleteBtn.addEventListener("click", function () {
     cardElement.remove();
+  });
+
+  const modalCardImage = cardModal.querySelector(".modal__card-image");
+  const modalCardText = cardModal.querySelector(".modal__card-text");
+
+  cardImage.addEventListener("click", function () {
+    modalCardImage.src = data.link;
+    modalCardImage.alt = data.name;
+    modalCardText.textContent = data.name;
+    openModal(cardModal);
   });
 
   return cardElement;

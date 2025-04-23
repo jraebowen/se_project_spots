@@ -12,6 +12,10 @@
   margin: 0 auto;
 }
 
+.card__image:hover {
+  cursor: pointer;
+}
+
 .card__delete-button {
   background-image: url("../images/delete-button-default.svg");
   position: absolute;
@@ -22,7 +26,7 @@
   padding: 0;
   border: none;
   border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: transparent;
   transition: background-image 0.5s linear 0s;
 }
 
