@@ -35,12 +35,12 @@ const nameInput = editProfileModal.querySelector("#full-name");
 const descriptionInput = editProfileModal.querySelector(
   "#personal-description"
 );
-const profileForm = editProfileModal.querySelector(".form");
+const profileForm = document.forms["profile-form"];
 
 //Post variables
 const newPostModal = document.querySelector("#new-post-modal");
 const newPostBtn = document.querySelector(".profile__post-button");
-const cardForm = newPostModal.querySelector(".form");
+const cardForm = document.forms["new-post-form"];
 const imageLink = newPostModal.querySelector("#image-link");
 const imageCaption = newPostModal.querySelector("#image-caption");
 
@@ -95,22 +95,8 @@ profileForm.addEventListener("submit", submitProfileForm);
 //Post form functions
 newPostBtn.addEventListener("click", () => {
   openModal(newPostModal);
-  imageLink.value = "";
-  imageCaption.value = "";
-  hideErrorMessage();
+  newPostModal.querySelector("form").reset();
 });
-
-function showErrorMessage() {
-  const errorMessage = newPostModal.querySelector(".form__error-message");
-  errorMessage.textContent = "Please enter a valid URL";
-  errorMessage.classList.add("form__error-message-visible");
-}
-
-function hideErrorMessage() {
-  const errorMessage = newPostModal.querySelector(".form__error-message");
-  errorMessage.textContent = "";
-  errorMessage.classList.remove("form__error-message-visible");
-}
 
 function submitPostForm(evt) {
   evt.preventDefault();
@@ -120,34 +106,11 @@ function submitPostForm(evt) {
     name: imageCaption.value,
   };
 
-  if (!urlCheck(newPostValues.link)) {
-    showErrorMessage();
-    return;
-  } else {
-    hideErrorMessage();
-  }
-
-  function urlCheck(link) {
-    try {
-      new URL(link);
-      return true;
-    } catch (err) {
-      return false;
-    }
-  }
-
-  imageLink.addEventListener("input", () => {
-    if (urlCheck(imageLink.value)) {
-      hideErrorMessage();
-    }
-  });
-
   const newCardElement = getCardElement(newPostValues);
 
   cardContainer.prepend(newCardElement);
 
-  imageLink.value = "";
-  imageCaption.value = "";
+  evt.target.reset();
 
   closeModal(newPostModal);
 }
