@@ -134,13 +134,17 @@
 
 .modal__container_card {
   background-color: transparent;
+  align-items: center;
+}
+
+.modal__card-wrapper {
   position: relative;
+  display: inline-block;
 }
 
 .modal__card-image {
   max-width: 80vw;
   max-height: 80vh;
-  width: 100%;
   object-fit: contain;
   border-radius: 8px;
 }
@@ -158,8 +162,9 @@
   background-image: url(../images/close-button-card-modal.svg);
   height: 40px;
   width: 40px;
-  right: 0px;
-  top: 0px;
+  position: absolute;
+  right: -50px;
+  top: 10px;
 }
 
 .modal__close-button_card:hover {
@@ -173,7 +178,6 @@
 
   .modal__close-button {
     top: 5px;
-    right: 10px;
   }
 
   .modal__title {
@@ -210,6 +214,7 @@
 
   .modal__close-button_card {
     top: -40px;
+    right: 5px;
   }
 
   .modal__card-text {
