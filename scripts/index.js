@@ -1,11 +1,29 @@
 //Card display on page load
 let initialCards = [
-  { name: "Maine Coon", link: "../images/mainecoon.jpg" },
-  { name: "Playful Kitten", link: "../images/kittenplay.jpg" },
-  { name: "Meowing Kitten", link: "../images/kittenmeow.jpg" },
-  { name: "Curious Cat", link: "../images/cathello.jpg" },
-  { name: "Roaring Kitten", link: "../images/kittenroar.jpg" },
-  { name: "Sunglass Cat", link: "../images/catsunglasses.jpg" },
+  {
+    name: "Maine Coon",
+    link: "https://images.unsplash.com/photo-1573865526739-10659fec78a5?q=80&w=2630&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    name: "Playful Kitten",
+    link: "https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2F0fGVufDB8fDB8fHwy",
+  },
+  {
+    name: "Meowing Kitten",
+    link: "https://images.unsplash.com/photo-1561948955-570b270e7c36?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGNhdHxlbnwwfHwwfHx8Mg%3D%3D",
+  },
+  {
+    name: "Curious Cat",
+    link: "https://images.unsplash.com/photo-1618826411640-d6df44dd3f7a?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGNhdHxlbnwwfHwwfHx8Mg%3D%3D",
+  },
+  {
+    name: "Roaring Kitten",
+    link: "https://images.unsplash.com/photo-1574144611937-0df059b5ef3e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGNhdHxlbnwwfHwwfHx8Mg%3D%3D",
+  },
+  {
+    name: "Sunglass Cat",
+    link: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNhdHxlbnwwfHwwfHx8Mg%3D%3D",
+  },
 ];
 
 //Profile variables
