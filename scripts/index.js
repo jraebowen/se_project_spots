@@ -93,9 +93,24 @@ function submitProfileForm(evt) {
 profileForm.addEventListener("submit", submitProfileForm);
 
 //Post form functions
-newPostBtn.addEventListener("click", () => openModal(newPostModal));
+newPostBtn.addEventListener("click", () => {
+  openModal(newPostModal);
+  imageLink.value = "";
+  imageCaption.value = "";
+  hideErrorMessage();
+});
 
-newPostBtn.addEventListener("click", () => openModal(newPostModal));
+function showErrorMessage() {
+  const errorMessage = newPostModal.querySelector(".form__error-message");
+  errorMessage.textContent = "Please enter a valid URL";
+  errorMessage.classList.add("form__error-message-visible");
+}
+
+function hideErrorMessage() {
+  const errorMessage = newPostModal.querySelector(".form__error-message");
+  errorMessage.textContent = "";
+  errorMessage.classList.remove("form__error-message-visible");
+}
 
 function submitPostForm(evt) {
   evt.preventDefault();
@@ -104,6 +119,29 @@ function submitPostForm(evt) {
     link: imageLink.value,
     name: imageCaption.value,
   };
+
+  if (!urlCheck(newPostValues.link)) {
+    showErrorMessage();
+    return;
+  } else {
+    hideErrorMessage();
+  }
+
+  function urlCheck(link) {
+    try {
+      new URL(link);
+      return true;
+    } catch (err) {
+      return false;
+    }
+  }
+
+  imageLink.addEventListener("input", () => {
+    if (urlCheck(imageLink.value)) {
+      hideErrorMessage();
+    }
+  });
+
   const newCardElement = getCardElement(newPostValues);
 
   cardContainer.prepend(newCardElement);
