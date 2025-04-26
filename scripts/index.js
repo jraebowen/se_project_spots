@@ -95,7 +95,6 @@ profileForm.addEventListener("submit", submitProfileForm);
 //Post form functions
 newPostBtn.addEventListener("click", () => {
   openModal(newPostModal);
-  newPostModal.querySelector("form").reset();
 });
 
 function submitPostForm(evt) {
