@@ -209,7 +209,7 @@
   }
 
   .modal__card-image {
-    max-width: 288px;
+    max-width: 90vw;
   }
 
   .modal__close-button_card {
