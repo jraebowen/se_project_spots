@@ -174,10 +174,12 @@
 @media screen and (max-width: 635px) {
   .modal__container {
     width: 100%;
+    position: relative;
   }
 
   .modal__close-button {
     top: 5px;
+    right: 10px;
   }
 
   .modal__title {
