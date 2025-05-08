@@ -63,8 +63,13 @@
                 class="form__input"
                 placeholder="Type your name"
                 id="full-name"
+                minlength="2"
+                maxlength="40"
                 required
               />
+              <span
+                class="form__error-message form__error-message_profile-name"
+              ></span>
             </fieldset>
             <fieldset class="form__fieldset">
               <label for="personal-description" class="form__label"
@@ -75,8 +80,13 @@
                 class="form__input"
                 placeholder="Describe yourself"
                 id="personal-description"
+                minlength="2"
+                maxlength="400"
                 required
               />
+              <span
+                class-="form__error-message form__error-message_profile-description"
+              ></span>
             </fieldset>
             <fieldset class="form__fieldset">
               <button type="submit" class="form__button">Save</button>
@@ -98,7 +108,7 @@
                 id="image-link"
                 required
               />
-              <span id="linkError" class="form__error-message"></span>
+              <span class="form__error-message form__error-message_link"></span>
             </fieldset>
             <fieldset class="form__fieldset">
               <label for="image-caption" class="form__label">Caption</label>
@@ -107,8 +117,13 @@
                 class="form__input"
                 placeholder="Type your caption"
                 id="image-caption"
+                minlength="2"
+                maxlength="30"
                 required
               />
+              <span
+                class="form__error-message form__error-message_image-caption"
+              ></span>
             </fieldset>
             <fieldset class="form__fieldset">
               <button type="submit" class="form__button">Save</button>
