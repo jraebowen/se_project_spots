@@ -73,6 +73,17 @@ closeButtons.forEach((button) => {
   });
 });
 
+const overlay = document.querySelectorAll(".modal");
+
+overlay.forEach((background) => {
+  background.addEventListener("click", function () {
+    const modal = background.closest(".modal");
+    if (modal) {
+      closeModal(modal);
+    }
+  });
+});
+
 //Profile functions
 editProfileBtn.addEventListener("click", editProfile);
 
