@@ -73,12 +73,13 @@ closeButtons.forEach((button) => {
   });
 });
 
-const overlay = document.querySelectorAll(".modal");
+const modal = document.querySelectorAll(".modal");
+const modalContainer = document.querySelectorAll(".modal__container");
 
-overlay.forEach((background) => {
-  background.addEventListener("click", function () {
+modal.forEach((background) => {
+  background.addEventListener("click", function (evt) {
     const modal = background.closest(".modal");
-    if (modal) {
+    if (evt.target === evt.currentTarget) {
       closeModal(modal);
     }
   });
