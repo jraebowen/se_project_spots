@@ -2,14 +2,14 @@ const configObjects = {
   formSelector: ".form",
   submitButton: ".form__button",
   formInput: ".form__input",
-  submitButtonInactive: ".form__button_inactive",
+  submitButtonInactive: "form__button_inactive",
   errorActive: "form__input-error_active",
   inputErrorType: "form__input_type_error",
 };
 
 const showInputError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(
-    `.form__input-error_${inputElement.id}`
+    `.input-error-${inputElement.id}`
   );
   inputElement.classList.add(configObjects.inputErrorType);
   errorElement.textContent = errorMessage;
@@ -18,7 +18,7 @@ const showInputError = (formElement, inputElement, errorMessage) => {
 
 const hideInputError = (formElement, inputElement) => {
   const errorElement = formElement.querySelector(
-    `.form__input-error_${inputElement.id}`
+    `.input-error_${inputElement.id}`
   );
   inputElement.classList.remove(configObjects.inputErrorType);
   errorElement.classList.remove(configObjects.errorActive);
@@ -42,8 +42,10 @@ const hasInvalidInput = (inputList) => {
 const toggleButtonState = (inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add(configObjects.submitButtonInactive);
+    buttonElement.disabled = true;
   } else {
     buttonElement.classList.remove(configObjects.submitButtonInactive);
+    buttonElement.disabled = false;
   }
 };
 
@@ -53,8 +55,8 @@ const setEventListeners = (formElement) => {
   );
   const buttonElement = formElement.querySelector(configObjects.submitButton);
   toggleButtonState(inputList, buttonElement);
-  inputList.forEach((formElement) => {
-    inputList.addEventListener("input", function () {
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener("input", function () {
       checkInputValidity(formElement, inputElement);
       toggleButtonState(inputList, buttonElement);
     });

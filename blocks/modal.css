@@ -120,6 +120,28 @@
 
 .form__button:hover {
   cursor: pointer;
+  background-color: rgba(33, 33, 33, 0.8);
+}
+
+.form__button_inactive {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form__input-error {
+  visibility: hidden;
+  color: rgba(255, 0, 0, 0.7);
+}
+
+.form__input-error_active {
+  visibility: visible;
+  color: rgba(255, 0, 0, 0.7);
+  font-size: 16px;
+}
+
+.form__input_type_error {
+  border: 1px solid rgba(255, 0, 0, 0.6);
 }
 
 .modal__container_card {
