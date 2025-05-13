@@ -56,10 +56,12 @@ const cardContainer = document.querySelector(".cards__list");
 //Modal open/close functions
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
+  document.addEventListener("keydown", escapeKey);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
+  document.removeEventListener("keydown", escapeKey);
 }
 
 const closeButtons = document.querySelectorAll(".modal__close-button");
@@ -84,6 +86,13 @@ modal.forEach((background) => {
     }
   });
 });
+
+function escapeKey(evt) {
+  const openModal = document.querySelector(".modal_is-opened");
+  if (evt.key === "Escape" && openModal) {
+    closeModal(openModal);
+  }
+}
 
 //Profile functions
 editProfileBtn.addEventListener("click", editProfile);
