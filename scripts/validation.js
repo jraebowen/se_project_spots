@@ -18,7 +18,7 @@ const showInputError = (formElement, inputElement, errorMessage) => {
 
 const hideInputError = (formElement, inputElement) => {
   const errorElement = formElement.querySelector(
-    `.input-error_${inputElement.id}`
+    `.input-error-${inputElement.id}`
   );
   inputElement.classList.remove(configObjects.inputErrorType);
   errorElement.classList.remove(configObjects.errorActive);
