@@ -95,7 +95,7 @@ function openEditProfileModal(evt) {
   const inputList = Array.from(
     profileForm.querySelectorAll(configObjects.formInput)
   );
-  resetValidation(profileForm, inputList);
+  resetValidation(profileForm, inputList, configObjects);
   openModal(editProfileModal);
 }
 
@@ -113,7 +113,7 @@ newPostBtn.addEventListener("click", () => {
   const inputList = Array.from(
     cardForm.querySelectorAll(configObjects.formInput)
   );
-  resetValidation(cardForm, inputList);
+  resetValidation(cardForm, inputList, configObjects);
   openModal(newPostModal);
 });
 
