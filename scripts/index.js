@@ -41,8 +41,9 @@ const profileForm = document.forms["profile-form"];
 const newPostModal = document.querySelector("#new-post-modal");
 const newPostBtn = document.querySelector(".profile__post-button");
 const cardForm = document.forms["new-post-form"];
-const imageLink = newPostModal.querySelector("#image-link");
-const imageCaption = newPostModal.querySelector("#image-caption");
+const cardFormElements = cardForm.elements;
+const imageLink = cardFormElements["image-link"];
+const imageCaption = cardFormElements["image-caption"];
 
 //Card modal variables
 const cardModal = document.querySelector("#card-modal");
@@ -64,24 +65,14 @@ function closeModal(modal) {
   document.removeEventListener("keydown", escapeKey);
 }
 
-const closeButtons = document.querySelectorAll(".modal__close-button");
+const modals = document.querySelectorAll(".modal");
 
-closeButtons.forEach((button) => {
-  button.addEventListener("click", function () {
-    const modal = button.closest(".modal");
-    if (modal) {
-      closeModal(modal);
-    }
-  });
-});
-
-const modal = document.querySelectorAll(".modal");
-const modalContainer = document.querySelectorAll(".modal__container");
-
-modal.forEach((background) => {
-  background.addEventListener("click", function (evt) {
-    const modal = background.closest(".modal");
-    if (evt.target === evt.currentTarget) {
+modals.forEach((modal) => {
+  modal.addEventListener("click", function (evt) {
+    if (
+      evt.target === evt.currentTarget ||
+      evt.target.classList.contains("modal__close-button")
+    ) {
       closeModal(modal);
     }
   });
@@ -95,12 +86,16 @@ function escapeKey(evt) {
 }
 
 //Profile functions
-editProfileBtn.addEventListener("click", editProfile);
+editProfileBtn.addEventListener("click", openEditProfileModal);
 
-function editProfile(evt) {
+function openEditProfileModal(evt) {
   evt.preventDefault();
   nameInput.value = profileName.textContent;
   descriptionInput.value = profileDescription.textContent;
+  const inputList = Array.from(
+    profileForm.querySelectorAll(configObjects.formInput)
+  );
+  resetValidation(profileForm, inputList);
   openModal(editProfileModal);
 }
 
@@ -115,6 +110,10 @@ profileForm.addEventListener("submit", submitProfileForm);
 
 //Post form functions
 newPostBtn.addEventListener("click", () => {
+  const inputList = Array.from(
+    cardForm.querySelectorAll(configObjects.formInput)
+  );
+  resetValidation(cardForm, inputList);
   openModal(newPostModal);
 });
 
@@ -131,6 +130,9 @@ function submitPostForm(evt) {
   cardContainer.prepend(newCardElement);
 
   evt.target.reset();
+
+  const buttonElement = cardForm.querySelector(configObjects.submitButton);
+  buttonElement.disabled = true;
 
   closeModal(newPostModal);
 }
