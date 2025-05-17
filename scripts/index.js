@@ -93,9 +93,9 @@ function openEditProfileModal(evt) {
   nameInput.value = profileName.textContent;
   descriptionInput.value = profileDescription.textContent;
   const inputList = Array.from(
-    profileForm.querySelectorAll(configObjects.formInput)
+    profileForm.querySelectorAll(validationConfig.formInput)
   );
-  resetValidation(profileForm, inputList, configObjects);
+  resetValidation(profileForm, inputList, validationConfig);
   openModal(editProfileModal);
 }
 
@@ -111,9 +111,9 @@ profileForm.addEventListener("submit", submitProfileForm);
 //Post form functions
 newPostBtn.addEventListener("click", () => {
   const inputList = Array.from(
-    cardForm.querySelectorAll(configObjects.formInput)
+    cardForm.querySelectorAll(validationConfig.formInput)
   );
-  resetValidation(cardForm, inputList, configObjects);
+  resetValidation(cardForm, inputList, validationConfig);
   openModal(newPostModal);
 });
 

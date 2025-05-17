@@ -1,4 +1,4 @@
-const configObjects = {
+const validationConfig = {
   formSelector: ".form",
   submitButton: ".form__button",
   formInput: ".form__input",
@@ -76,7 +76,7 @@ const enableValidation = (config) => {
   });
 };
 
-enableValidation(configObjects);
+enableValidation(validationConfig);
 
 const resetValidation = (formElement, inputList, config) => {
   inputList.forEach((inputElement) => {
