@@ -131,7 +131,7 @@ function submitPostForm(evt) {
 
   evt.target.reset();
 
-  const buttonElement = cardForm.querySelector(configObjects.submitButton);
+  const buttonElement = cardForm.querySelector(validationConfig.submitButton);
   buttonElement.disabled = true;
 
   closeModal(newPostModal);
