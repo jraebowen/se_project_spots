@@ -78,7 +78,7 @@ modals.forEach((modal) => {
   });
 });
 
-function escapeKey(evt) {
+function closeModalEscapeKey(evt) {
   const openModal = document.querySelector(".modal_is-opened");
   if (evt.key === "Escape" && openModal) {
     closeModal(openModal);
@@ -113,7 +113,6 @@ newPostBtn.addEventListener("click", () => {
   const inputList = Array.from(
     cardForm.querySelectorAll(validationConfig.formInput)
   );
-  resetValidation(cardForm, inputList, validationConfig);
   openModal(newPostModal);
 });
 
