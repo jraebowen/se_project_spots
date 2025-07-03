@@ -1,9 +1,15 @@
+import "./index.css";
+import profileSrc from "../images/profile-image.jpeg";
+
+const profileImage = document.getElementById("image-profile");
+profileImage.src = profileSrc;
+
 import {
   enableValidation,
   resetValidation,
   disableButton,
   validationConfig,
-} from "./validation.js";
+} from "../scripts/validation.js";
 
 //Card display on page load
 const initialCards = [

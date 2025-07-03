@@ -7,21 +7,19 @@
     <meta name="description" content="Spots Social Media Web Application" />
     <meta name="keywords" content="Social Media, Photography" />
     <title>Spots</title>
-    <link rel="stylesheet" href="pages/index.css" />
-    <link rel="icon" href="./favicon.ico" />
   </head>
   <body>
     <div class="page">
       <header class="header">
-        <img class="header__logo" src="./images/logo.svg" alt="logo" />
+        <img
+          class="header__logo"
+          src="<%=require('./images/logo.svg')%>"
+          alt="logo"
+        />
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            class="profile__image"
-            src="https://images.unsplash.com/photo-1574158622682-e40e69881006?q=80&w=2333&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="main cat"
-          />
+          <img class="profile__image" id="image-profile" alt="main cat" />
           <div class="profile__bio">
             <h1 class="profile__name">Cat Lady</h1>
             <p class="profile__description">Cat Enthusiast</p>
@@ -49,7 +47,7 @@
         </section>
       </main>
       <footer class="footer">
-        <p class="footer__text">2023 &copy; Spots</p>
+        <p class="footer__text">2025 &copy; Spots</p>
       </footer>
       <div class="modal" id="edit-profile-modal">
         <div class="modal__container">
@@ -142,6 +140,5 @@
         </div>
       </div>
     </div>
-    <script type="module" src="./scripts/index.js"></script>
   </body>
 </html>
