@@ -1,3 +1,10 @@
+import {
+  enableValidation,
+  resetValidation,
+  disableButton,
+  validationConfig,
+} from "./validation.js";
+
 //Card display on page load
 const initialCards = [
   {
@@ -179,3 +186,5 @@ initialCards.forEach((cardElementData) => {
   const cardDetails = getCardElement(cardElementData);
   cardContainer.append(cardDetails);
 });
+
+enableValidation(validationConfig);

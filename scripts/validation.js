@@ -84,10 +84,10 @@ const enableValidation = (config) => {
   });
 };
 
-enableValidation(validationConfig);
-
 const resetValidation = (formElement, inputList, config) => {
   inputList.forEach((inputElement) => {
     hideInputError(formElement, inputElement, config);
   });
 };
+
+export { enableValidation, resetValidation, disableButton, validationConfig };
