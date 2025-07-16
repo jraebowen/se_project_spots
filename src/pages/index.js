@@ -166,11 +166,15 @@ newPostBtn.addEventListener("click", () => {
 
 function submitPostForm(evt) {
   evt.preventDefault();
-
-  const newPostValues = {
-    link: imageLink.value,
-    name: imageCaption.value,
-  };
+  api
+    .addNewCard({ name: imageCaption.value, link: imageLink.value })
+    .then((newPostValues) => {
+      modalCardText.textContent = newPostValues.name;
+      modalCardImage.src = newPostValues.link;
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 
   const newCardElement = getCardElement(newPostValues);
 
