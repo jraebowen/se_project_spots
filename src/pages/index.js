@@ -210,10 +210,22 @@ function getCardElement(data) {
   });
 
   const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
+  const deleteModal = document.querySelector("#delete-modal");
+  const modalDeleteBtn = deleteModal.querySelector(".modal__delete-btn");
+  const modalCancelBtn = deleteModal.querySelector(".modal__cancel-btn");
 
-  cardDeleteBtn.addEventListener("click", () => {
-    cardElement.remove();
-  });
+  function openDeleteModal() {
+    openModal(deleteModal);
+    modalDeleteBtn.addEventListener("click", function () {
+      cardElement.remove();
+      closeModal(deleteModal);
+    });
+    modalCancelBtn.addEventListener("click", function () {
+      closeModal(deleteModal);
+    });
+  }
+
+  cardDeleteBtn.addEventListener("click", openDeleteModal);
 
   cardImage.addEventListener("click", () => {
     modalCardImage.src = data.link;
