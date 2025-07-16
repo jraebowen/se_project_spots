@@ -41,30 +41,6 @@ const initialCards = [
   },
 ];
 
-//instantiate API
-const api = new Api({
-  baseUrl: "https://around-api.en.tripleten-services.com/v1",
-  headers: {
-    authorization: "86e6d4b3-988b-4cb7-8bff-22038b157b0f",
-    "Content-Type": "application/json",
-  },
-});
-
-api
-  .getAppInfo()
-  .then(([initialCards, getUserInfo]) => {
-    initialCards.forEach((cardElementData) => {
-      const cardDetails = getCardElement(cardElementData);
-      cardContainer.append(cardDetails);
-    });
-    profileName.textContent = getUserInfo.name;
-    profileDescription.textContent = getUserInfo.about;
-    document.querySelector(".profile__image").src = getUserInfo.avatar;
-  })
-  .catch((err) => {
-    console.error(err);
-  });
-
 //Profile variables
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileBtn = document.querySelector(".profile__edit-button");
@@ -92,6 +68,30 @@ const modalCardText = cardModal.querySelector(".modal__card-text");
 //Card template variables
 const cardTemplate = document.querySelector("#card-template");
 const cardContainer = document.querySelector(".cards__list");
+
+//instantiate API
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "86e6d4b3-988b-4cb7-8bff-22038b157b0f",
+    "Content-Type": "application/json",
+  },
+});
+
+api
+  .getAppInfo()
+  .then(([initialCards, getUserInfo]) => {
+    initialCards.forEach((cardElementData) => {
+      const cardDetails = getCardElement(cardElementData);
+      cardContainer.append(cardDetails);
+    });
+    profileName.textContent = getUserInfo.name;
+    profileDescription.textContent = getUserInfo.about;
+    document.querySelector(".profile__image").src = getUserInfo.avatar;
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
 //Modal open/close functions
 function openModal(modal) {
@@ -142,9 +142,16 @@ function openEditProfileModal(evt) {
 
 function submitProfileForm(evt) {
   evt.preventDefault();
-  profileName.textContent = nameInput.value;
-  profileDescription.textContent = descriptionInput.value;
-  closeModal(editProfileModal);
+  api
+    .editUserInfo({ name: nameInput.value, about: descriptionInput.value })
+    .then((updatedUserInfo) => {
+      profileName.textContent = updatedUserInfo.name;
+      profileDescription.textContent = updatedUserInfo.about;
+      closeModal(editProfileModal);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 }
 
 profileForm.addEventListener("submit", submitProfileForm);
