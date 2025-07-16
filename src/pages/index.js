@@ -11,6 +11,8 @@ import {
   validationConfig,
 } from "../scripts/validation.js";
 
+import Api from "../utils/Api.js";
+
 //Card display on page load
 const initialCards = [
   {
@@ -38,6 +40,30 @@ const initialCards = [
     link: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNhdHxlbnwwfHwwfHx8Mg%3D%3D",
   },
 ];
+
+//instantiate API
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "86e6d4b3-988b-4cb7-8bff-22038b157b0f",
+    "Content-Type": "application/json",
+  },
+});
+
+api
+  .getAppInfo()
+  .then(([initialCards, getUserInfo]) => {
+    initialCards.forEach((cardElementData) => {
+      const cardDetails = getCardElement(cardElementData);
+      cardContainer.append(cardDetails);
+    });
+    profileName.textContent = getUserInfo.name;
+    profileDescription.textContent = getUserInfo.about;
+    document.querySelector(".profile__image").src = getUserInfo.avatar;
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
 //Profile variables
 const editProfileModal = document.querySelector("#edit-profile-modal");
@@ -187,10 +213,5 @@ function getCardElement(data) {
 
   return cardElement;
 }
-
-initialCards.forEach((cardElementData) => {
-  const cardDetails = getCardElement(cardElementData);
-  cardContainer.append(cardDetails);
-});
 
 enableValidation(validationConfig);
