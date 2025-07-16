@@ -13,34 +13,6 @@ import {
 
 import Api from "../utils/Api.js";
 
-//Card display on page load
-const initialCards = [
-  {
-    name: "Maine Coon",
-    link: "https://images.unsplash.com/photo-1573865526739-10659fec78a5?q=80&w=2630&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    name: "Playful Kitten",
-    link: "https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2F0fGVufDB8fDB8fHwy",
-  },
-  {
-    name: "Meowing Kitten",
-    link: "https://images.unsplash.com/photo-1561948955-570b270e7c36?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGNhdHxlbnwwfHwwfHx8Mg%3D%3D",
-  },
-  {
-    name: "Curious Cat",
-    link: "https://images.unsplash.com/photo-1618826411640-d6df44dd3f7a?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGNhdHxlbnwwfHwwfHx8Mg%3D%3D",
-  },
-  {
-    name: "Roaring Kitten",
-    link: "https://images.unsplash.com/photo-1574144611937-0df059b5ef3e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGNhdHxlbnwwfHwwfHx8Mg%3D%3D",
-  },
-  {
-    name: "Sunglass Cat",
-    link: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNhdHxlbnwwfHwwfHx8Mg%3D%3D",
-  },
-];
-
 //Profile variables
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileBtn = document.querySelector(".profile__edit-button");
@@ -64,6 +36,13 @@ const imageCaption = cardFormElements["image-caption"];
 const cardModal = document.querySelector("#card-modal");
 const modalCardImage = cardModal.querySelector(".modal__card-image");
 const modalCardText = cardModal.querySelector(".modal__card-text");
+
+//Delete modal variables
+const deleteModal = document.querySelector("#delete-modal");
+const modalDeleteBtn = deleteModal.querySelector(".modal__delete-btn");
+const modalCancelBtn = deleteModal.querySelector(".modal__cancel-btn");
+let selectedCard;
+let selectedCardId;
 
 //Card template variables
 const cardTemplate = document.querySelector("#card-template");
@@ -210,22 +189,10 @@ function getCardElement(data) {
   });
 
   const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
-  const deleteModal = document.querySelector("#delete-modal");
-  const modalDeleteBtn = deleteModal.querySelector(".modal__delete-btn");
-  const modalCancelBtn = deleteModal.querySelector(".modal__cancel-btn");
 
-  function openDeleteModal() {
-    openModal(deleteModal);
-    modalDeleteBtn.addEventListener("click", function () {
-      cardElement.remove();
-      closeModal(deleteModal);
-    });
-    modalCancelBtn.addEventListener("click", function () {
-      closeModal(deleteModal);
-    });
-  }
-
-  cardDeleteBtn.addEventListener("click", openDeleteModal);
+  cardDeleteBtn.addEventListener("click", (evt) =>
+    handleDeleteCard(cardElement, data)
+  );
 
   cardImage.addEventListener("click", () => {
     modalCardImage.src = data.link;
@@ -236,5 +203,29 @@ function getCardElement(data) {
 
   return cardElement;
 }
+
+//deleted card modal function
+function handleDeleteCard(cardElement, data) {
+  selectedCard = cardElement;
+  selectedCardId = data._id;
+  openModal(deleteModal);
+}
+
+//delete card submit function
+function handleDeleteSubmit() {
+  api
+    .deleteCard(selectedCardId)
+    .then(() => {
+      selectedCard.remove();
+      closeModal(deleteModal);
+    })
+    .catch(console.error);
+}
+
+modalDeleteBtn.addEventListener("click", handleDeleteSubmit);
+
+modalCancelBtn.addEventListener("click", function () {
+  closeModal(deleteModal);
+});
 
 enableValidation(validationConfig);
