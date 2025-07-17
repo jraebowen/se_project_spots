@@ -186,7 +186,7 @@
 .modal__container_delete-modal {
   max-width: 630px;
   height: 172px;
-  padding: 0;
+  position: relative;
 }
 
 .modal__title_delete-modal {
@@ -248,6 +248,16 @@
   opacity: 40%;
 }
 
+@media screen and (max-width: 718px) {
+  .modal__container_delete-modal {
+    max-width: 500px;
+  }
+  .modal__title_delete-modal {
+    margin: 20px;
+    padding: 0;
+  }
+}
+
 @media screen and (max-width: 635px) {
   .modal__container {
     width: 100%;
@@ -289,6 +299,7 @@
 
   .modal__card-image {
     max-width: 90vw;
+    max-height: 500px;
   }
 
   .modal__close-button_card {
@@ -298,5 +309,23 @@
 
   .modal__card-text {
     font-size: 16px;
+  }
+  .modal__container_delete-modal {
+    max-width: 70vw;
+  }
+  .modal__close-button_delete-modal {
+    height: 32px;
+    width: 32px;
+    right: -50px;
+    top: -10px;
+  }
+  .modal__delete-btn {
+    max-width: 100px;
+    height: 52px;
+  }
+
+  .modal__cancel-btn {
+    max-width: 100px;
+    height: 52px;
   }
 }
