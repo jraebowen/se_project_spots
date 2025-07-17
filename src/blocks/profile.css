@@ -169,13 +169,24 @@
     padding: 0 0 20px 0;
   }
 
-  .profile__image {
+  .profile__image-container {
+    width: 80px;
+    height: 80px;
     padding-top: 20px;
     padding-bottom: 12px;
-    margin: 0;
-    height: 80px;
-    width: 80px;
-    border-radius: 8px;
+    margin: 0px;
+  }
+
+  .profile__image-edit-icon {
+    position: absolute;
+    bottom: 2px;
+    left: 82%;
+    width: 24px;
+    height: 24px;
+    background: url("../images/avatar-edit-button-mobile.svg") no-repeat center;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    opacity: 1;
   }
 
   .profile__bio {
