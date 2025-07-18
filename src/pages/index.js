@@ -1,5 +1,4 @@
 import "./index.css";
-import profileSrc from "../images/profile-image.jpeg";
 
 import {
   enableValidation,
