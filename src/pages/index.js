@@ -10,6 +10,8 @@ import {
 
 import Api from "../utils/Api.js";
 
+const saveBtns = document.querySelector(".form__button");
+
 //Profile variables
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileBtn = document.querySelector(".profile__edit-button");
@@ -126,6 +128,7 @@ function openEditProfileModal(evt) {
 
 function submitProfileForm(evt) {
   evt.preventDefault();
+  saveBtns.textContent = "Saving...";
   api
     .editUserInfo({ name: nameInput.value, about: descriptionInput.value })
     .then((updatedUserInfo) => {
@@ -135,6 +138,9 @@ function submitProfileForm(evt) {
     })
     .catch((err) => {
       console.error(err);
+    })
+    .finally(() => {
+      saveBtns.textContent = "Save";
     });
 }
 
@@ -155,6 +161,7 @@ function openProfilePicModal(evt) {
 
 function submitProfilePicForm(evt) {
   evt.preventDefault();
+  saveBtns.textContent = "Saving...";
   api
     .updateProfilePicture({ avatar: profilePicInput.value })
     .then((updatedProfilePic) => {
@@ -163,6 +170,9 @@ function submitProfilePicForm(evt) {
     })
     .catch((err) => {
       console.error(err);
+    })
+    .finally(() => {
+      saveBtns.textContent = "Save";
     });
 }
 
@@ -175,6 +185,7 @@ newPostBtn.addEventListener("click", () => {
 
 function submitPostForm(evt) {
   evt.preventDefault();
+  saveBtns.textContent = "Saving...";
   api
     .addNewCard({ name: imageCaption.value, link: imageLink.value })
     .then((newPostValues) => {
@@ -195,6 +206,9 @@ function submitPostForm(evt) {
     })
     .catch((err) => {
       console.error(err);
+    })
+    .finally(() => {
+      saveBtns.textContent = "Save";
     });
 }
 
@@ -258,13 +272,17 @@ function handleDeleteCard(cardElement, data) {
 
 //delete card submit function
 function handleDeleteSubmit() {
+  modalDeleteBtn.textContent = "Deleting...";
   api
     .deleteCard(selectedCardId)
     .then(() => {
       selectedCard.remove();
       closeModal(deleteModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      modalDeleteBtn.textContent = "Delete";
+    });
 }
 
 modalDeleteBtn.addEventListener("click", handleDeleteSubmit);
