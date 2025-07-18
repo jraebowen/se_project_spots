@@ -25,6 +25,7 @@
                 class="profile__image"
                 id="image-profile"
                 alt="profile-image"
+                src="#"
               />
               <span class="profile__image-edit-icon"></span>
             </button>
@@ -163,6 +164,29 @@
               <button class="modal__cancel-btn">Cancel</button>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="modal" id="edit-profile-picture">
+        <div class="modal__container">
+          <button type="button" class="modal__close-button"></button>
+          <h2 class="modal__title">Edit Profile Picture</h2>
+          <form class="modal__form form" name="profile-picture-form" novalidate>
+            <fieldset class="form__fieldset">
+              <label for="profile-picture" class="form__label">Profile Picture</label>
+              <input
+                type="text"
+                class="form__input"
+                placeholder="Link"
+                id="profile-picture"
+                minlength="2"
+                maxlength="400"
+                required
+              />
+              <span class="form__input-error input-error-profile-picture"></span>
+            <fieldset class="form__fieldset">
+              <button type="submit" class="form__button">Save</button>
+            </fieldset>
+          </form>
         </div>
       </div>
     </div>

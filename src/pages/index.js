@@ -1,9 +1,6 @@
 import "./index.css";
 import profileSrc from "../images/profile-image.jpeg";
 
-const profileImage = document.getElementById("image-profile");
-profileImage.src = profileSrc;
-
 import {
   enableValidation,
   resetValidation,
@@ -23,6 +20,14 @@ const descriptionInput = editProfileModal.querySelector(
   "#personal-description"
 );
 const profileForm = document.forms["profile-form"];
+
+//Profile picture variables
+const profilePicModal = document.querySelector("#edit-profile-picture");
+const editProfilePicBtn = document.querySelector(".profile__image_edit-button");
+const profilePic = document.querySelector(".profile__image");
+const profilePicInput = document.querySelector("#profile-picture");
+const profilePicForm = document.forms["profile-picture-form"];
+const profileImage = document.getElementById("image-profile");
 
 //Post variables
 const newPostModal = document.querySelector("#new-post-modal");
@@ -48,7 +53,7 @@ let selectedCardId;
 const cardTemplate = document.querySelector("#card-template");
 const cardContainer = document.querySelector(".cards__list");
 
-//instantiate API
+//instantiate API and load cards
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
@@ -60,7 +65,6 @@ const api = new Api({
 api
   .getAppInfo()
   .then(([initialCards, getUserInfo]) => {
-    console.log(initialCards);
     initialCards.forEach((cardElementData) => {
       const cardDetails = getCardElement(cardElementData);
       cardContainer.append(cardDetails);
@@ -136,11 +140,36 @@ function submitProfileForm(evt) {
 
 profileForm.addEventListener("submit", submitProfileForm);
 
+//Profile Pic functions
+editProfilePicBtn.addEventListener("click", openProfilePicModal);
+
+function openProfilePicModal(evt) {
+  evt.preventDefault();
+  profilePicInput.value = profilePic.src;
+  const inputList = Array.from(
+    profilePicForm.querySelectorAll(validationConfig.formInput)
+  );
+  resetValidation(profilePicForm, inputList, validationConfig);
+  openModal(profilePicModal);
+}
+
+function submitProfilePicForm(evt) {
+  evt.preventDefault();
+  api
+    .updateProfilePicture({ avatar: profilePicInput.value })
+    .then((updatedProfilePic) => {
+      profileImage.src = updatedProfilePic.avatar;
+      closeModal(profilePicModal);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+}
+
+profilePicForm.addEventListener("submit", submitProfilePicForm);
+
 //Post form functions
 newPostBtn.addEventListener("click", () => {
-  const inputList = Array.from(
-    cardForm.querySelectorAll(validationConfig.formInput)
-  );
   openModal(newPostModal);
 });
 
