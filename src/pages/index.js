@@ -9,8 +9,6 @@ import {
 
 import Api from "../utils/Api.js";
 
-const saveBtns = document.querySelector(".form__button");
-
 //Profile variables
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileBtn = document.querySelector(".profile__edit-button");
@@ -21,14 +19,19 @@ const descriptionInput = editProfileModal.querySelector(
   "#personal-description"
 );
 const profileForm = document.forms["profile-form"];
+const profileEditSaveBtn = document.querySelector(
+  "#edit-profile-modal .form__button"
+);
 
 //Profile picture variables
 const profilePicModal = document.querySelector("#edit-profile-picture");
 const editProfilePicBtn = document.querySelector(".profile__image_edit-button");
-const profilePic = document.querySelector(".profile__image");
 const profilePicInput = document.querySelector("#profile-picture");
 const profilePicForm = document.forms["profile-picture-form"];
 const profileImage = document.getElementById("image-profile");
+const profilePicSaveBtn = document.querySelector(
+  "#edit-profile-picture .form__button"
+);
 
 //Post variables
 const newPostModal = document.querySelector("#new-post-modal");
@@ -37,6 +40,7 @@ const cardForm = document.forms["new-post-form"];
 const cardFormElements = cardForm.elements;
 const imageLink = cardFormElements["image-link"];
 const imageCaption = cardFormElements["image-caption"];
+const newPostSaveBtn = document.querySelector("#new-post-modal .form__button");
 
 //Card modal variables
 const cardModal = document.querySelector("#card-modal");
@@ -127,7 +131,7 @@ function openEditProfileModal(evt) {
 
 function submitProfileForm(evt) {
   evt.preventDefault();
-  saveBtns.textContent = "Saving...";
+  profileEditSaveBtn.textContent = "Saving...";
   api
     .editUserInfo({ name: nameInput.value, about: descriptionInput.value })
     .then((updatedUserInfo) => {
@@ -139,7 +143,7 @@ function submitProfileForm(evt) {
       console.error(err);
     })
     .finally(() => {
-      saveBtns.textContent = "Save";
+      profileEditSaveBtn.textContent = "Save";
     });
 }
 
@@ -150,7 +154,6 @@ editProfilePicBtn.addEventListener("click", openProfilePicModal);
 
 function openProfilePicModal(evt) {
   evt.preventDefault();
-  profilePicInput.value = profilePic.src;
   const inputList = Array.from(
     profilePicForm.querySelectorAll(validationConfig.formInput)
   );
@@ -160,7 +163,7 @@ function openProfilePicModal(evt) {
 
 function submitProfilePicForm(evt) {
   evt.preventDefault();
-  saveBtns.textContent = "Saving...";
+  profilePicSaveBtn.textContent = "Saving...";
   api
     .updateProfilePicture({ avatar: profilePicInput.value })
     .then((updatedProfilePic) => {
@@ -171,7 +174,7 @@ function submitProfilePicForm(evt) {
       console.error(err);
     })
     .finally(() => {
-      saveBtns.textContent = "Save";
+      profilePicSaveBtn.textContent = "Save";
     });
 }
 
@@ -184,7 +187,7 @@ newPostBtn.addEventListener("click", () => {
 
 function submitPostForm(evt) {
   evt.preventDefault();
-  saveBtns.textContent = "Saving...";
+  newPostSaveBtn.textContent = "Saving...";
   api
     .addNewCard({ name: imageCaption.value, link: imageLink.value })
     .then((newPostValues) => {
@@ -207,7 +210,7 @@ function submitPostForm(evt) {
       console.error(err);
     })
     .finally(() => {
-      saveBtns.textContent = "Save";
+      newPostSaveBtn.textContent = "Save";
     });
 }
 
