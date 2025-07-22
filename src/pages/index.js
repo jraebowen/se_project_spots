@@ -9,6 +9,10 @@ import {
 
 import Api from "../utils/Api.js";
 
+import logo from "../images/logo.svg";
+const logoImg = document.querySelector(".header__logo");
+logoImg.src = logo;
+
 //Profile variables
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileBtn = document.querySelector(".profile__edit-button");
