@@ -62,7 +62,7 @@ const cardContainer = document.querySelector(".cards__list");
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
-    authorization: "cb06c03e-9cc7-469f-90ec-ddd174e795dd",
+    authorization: "60c27f88-7eb2-4088-a1ae-4d6cb9b59101",
     "Content-Type": "application/json",
   },
 });
