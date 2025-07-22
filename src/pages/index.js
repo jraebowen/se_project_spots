@@ -168,6 +168,7 @@ function submitProfilePicForm(evt) {
     .updateProfilePicture({ avatar: profilePicInput.value })
     .then((updatedProfilePic) => {
       profileImage.src = updatedProfilePic.avatar;
+      profilePicForm.reset();
       closeModal(profilePicModal);
     })
     .catch((err) => {
