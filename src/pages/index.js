@@ -101,10 +101,7 @@ const modals = document.querySelectorAll(".modal");
 
 modals.forEach((modal) => {
   modal.addEventListener("click", function (evt) {
-    if (
-      evt.target === evt.currentTarget ||
-      evt.target.classList.contains("modal__close-button")
-    ) {
+    if (evt.target.classList.contains("modal__close-button")) {
       closeModal(modal);
     }
   });

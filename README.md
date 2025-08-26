@@ -38,16 +38,9 @@ Users can interact with this page by updating their Profile with a new profile i
 
 [Link to the project on Figma](https://www.figma.com/file/BBNm2bC3lj8QQMHlnqRsga/Sprint-3-Project-%E2%80%94-Spots?type=design&node-id=2%3A60&mode=design&t=afgNFybdorZO6cQo-1)
 
-**Screenshots of Responsive Design**
-
-TO BE UPDATED
-
-- [Desktop Responsive Design](https://drive.google.com/file/d/10uDLKOPVbQld18QhKHPntwnguGo68e3g/view?usp=sharing)
-- [Mobile Responsive Design](https://drive.google.com/file/d/10uDLKOPVbQld18QhKHPntwnguGo68e3g/view?usp=sharing)
-
 **Final Project**
 
 TO BE UPDATED
 
 - [Link to live project](https://jraebowen.github.io/se_project_spots/)
-- [Recorded overview of project](https://drive.google.com/file/d/1UBWOwgwm36UgGa1H6EWGHuHucgIjbCAy/view?usp=sharing)
+- [Recorded overview of project](https://drive.google.com/file/d/1HkT1vZR6Z-o002BbVecq7Iqcyshdj8Gx/view?usp=drive_link)
